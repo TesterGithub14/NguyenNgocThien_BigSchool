@@ -26,5 +26,12 @@ namespace NguyenNgocThien_BigSchool.Controllers
 
             return View();
         }
+
+        public ActionResult test()
+        {
+            ViewBag.Message = "Test page.";
+
+            return View();
+        }
     }
 }
