@@ -13,6 +13,10 @@ namespace NguyenNgocThien_BigSchool.Controllers
     {
         public ActionResult Index()
         {
+                return View();
+        }
+        /*public ActionResult Index()
+        {
             BigSchoolContext context = new BigSchoolContext();
             var upcommingCourse = context.Course.Where(p => p.DateTime > DateTime.Now).OrderBy(p => p.DateTime).ToList();
             foreach (Course i in upcommingCourse)
@@ -21,8 +25,8 @@ namespace NguyenNgocThien_BigSchool.Controllers
                 i.Name = user.Name;
             }
 
-                return View(upcommingCourse);
-        }
+            return View(upcommingCourse);
+        }*/
 
         public ActionResult About()
         {
