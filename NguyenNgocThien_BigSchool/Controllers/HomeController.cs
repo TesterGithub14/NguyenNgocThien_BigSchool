@@ -18,9 +18,10 @@ namespace NguyenNgocThien_BigSchool.Controllers
             foreach (Course i in upcommingCourse)
             {
                 ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(i.LecturerId);
+                i.Name = user.Name;
             }
 
-                return View();
+                return View(upcommingCourse);
         }
 
         public ActionResult About()
