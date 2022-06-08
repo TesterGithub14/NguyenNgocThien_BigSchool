@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using NguyenNgocThien_BigSchool.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +13,14 @@ namespace NguyenNgocThien_BigSchool.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            BigSchoolContext context = new BigSchoolContext();
+            var upcommingCourse = context.Course.Where(p => p.DateTime > DateTime.Now).OrderBy(p => p.DateTime).ToList();
+            foreach (Course i in upcommingCourse)
+            {
+                ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(i.LecturerId);
+            }
+
+                return View();
         }
 
         public ActionResult About()
