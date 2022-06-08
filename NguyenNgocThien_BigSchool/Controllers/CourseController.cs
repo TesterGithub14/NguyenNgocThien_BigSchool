@@ -30,7 +30,7 @@ namespace NguyenNgocThien_BigSchool.Controllers
         {
             BigSchoolContext context = new BigSchoolContext();
 
-            //Khong xet valid LectureId vi bang user dang nhap
+            //Khong xet valid LectureId vi bang user dang nhap.
             ModelState.Remove("LecturerId");
             if (!ModelState.IsValid)
             {
