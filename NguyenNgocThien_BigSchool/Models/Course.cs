@@ -22,6 +22,8 @@ namespace NguyenNgocThien_BigSchool.Models
         public DateTime DateTime { get; set; }
 
         public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
+        public string Name;
 
         //add List Category
         public List<Category> ListCategory = new List<Category>();
