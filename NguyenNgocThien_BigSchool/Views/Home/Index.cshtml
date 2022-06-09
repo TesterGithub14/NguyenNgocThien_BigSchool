@@ -1,18 +1,11 @@
-﻿@{
+﻿@model IEnumerable<NguyenNgocThien_BigSchool.Models.Course>
+@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row">
     <ul class="course">
-        <ul>
-                @foreach (var course in Model)
-                {
-                    <li>
-                        @course.DateTime.ToString("dd/MM/yyyy HH:mm") - @course.Name
-                    </li>            
-                }
-        </ul>
 
         @foreach (var course in Model)
         {
@@ -25,6 +18,7 @@
                         @course.DateTime.ToString("dd")
                     </div>
                 </div>
+                <br />
                 <div class="details">
                     <span class="lecture">
                         @course.Name
