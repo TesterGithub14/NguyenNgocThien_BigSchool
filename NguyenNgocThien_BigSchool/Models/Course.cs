@@ -25,7 +25,6 @@ namespace NguyenNgocThien_BigSchool.Models
         public virtual Category Category { get; set; }
         public string Name;
 
-        //add List Category
         public List<Category> ListCategory = new List<Category>();
     }
 }

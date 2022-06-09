@@ -19,7 +19,7 @@ namespace NguyenNgocThien_BigSchool.Controllers
             //get list category
             BigSchoolContext context = new BigSchoolContext();
             Course objCourse = new Course();
-            objCourse.ListCategory = context.Category.ToList();
+            objCourse.ListCategory = context.Categories.ToList();
 
             return View(objCourse);
         }
@@ -34,7 +34,7 @@ namespace NguyenNgocThien_BigSchool.Controllers
             ModelState.Remove("LecturerId");
             if (!ModelState.IsValid)
             {
-                objCourse.ListCategory = context.Category.ToList();
+                objCourse.ListCategory = context.Categories.ToList();
                 return View("Create", objCourse);
             }
 
@@ -43,7 +43,7 @@ namespace NguyenNgocThien_BigSchool.Controllers
             objCourse.LecturerId = user.Id;
 
             //Add vao csdl
-            context.Course.Add(objCourse);
+            context.Courses.Add(objCourse);
             context.SaveChanges();
 
             //Tro ve Home, Action Index
