@@ -28,5 +28,7 @@ namespace NguyenNgocThien_BigSchool.Models
         public string Name;
 
         public List<Category> ListCategory = new List<Category>();
+        //
     }
 }
+
