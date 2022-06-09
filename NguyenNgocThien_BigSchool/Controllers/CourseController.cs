@@ -66,5 +66,18 @@ namespace NguyenNgocThien_BigSchool.Controllers
             }
             return View(courses);
         }
+
+        public ActionResult Mine()
+        {
+            ApplicationUser currentUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>()
+                .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            BigSchoolContext context = new BigSchoolContext();
+            var course = context.Courses.Where(c => c.LecturerId == currentUser.Id && c.DateTime > DateTime.Now).ToList();
+            foreach(Course i in course)
+            {
+                i.LecturerName = currentUser.Name;
+            }
+            return View(course);
+        }
     }
 }
