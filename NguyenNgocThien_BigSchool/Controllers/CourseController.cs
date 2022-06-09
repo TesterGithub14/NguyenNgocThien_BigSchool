@@ -49,5 +49,22 @@ namespace NguyenNgocThien_BigSchool.Controllers
             //Tro ve Home, Action Index
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult Attending()
+        {
+            BigSchoolContext context = new BigSchoolContext();
+            ApplicationUser currentUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>()
+                .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            var listAttendancces = context.Attendances.Where(p => p.Attendee == currentUser.Id).ToList();
+            var courses = new List<Course>();
+            foreach (Attendance temp in listAttendancces)
+            {
+                Course objCourse = temp.Course;
+                objCourse.LecturerName = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>()
+                    .FindById(objCourse.LecturerId).Name;
+                courses.Add(objCourse);
+            }
+            return View(courses);
+        }
     }
 }

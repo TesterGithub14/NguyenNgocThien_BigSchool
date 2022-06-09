@@ -23,6 +23,8 @@ namespace NguyenNgocThien_BigSchool.Models
 
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
+        public string LecturerName;
+
         public string Name;
 
         public List<Category> ListCategory = new List<Category>();
