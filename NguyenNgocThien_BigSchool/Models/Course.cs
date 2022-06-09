@@ -5,7 +5,7 @@ namespace NguyenNgocThien_BigSchool.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
+   
     [Table("Course")]
     public partial class Course
     {
@@ -30,4 +30,3 @@ namespace NguyenNgocThien_BigSchool.Models
         public List<Category> ListCategory = new List<Category>();
     }
 }
-

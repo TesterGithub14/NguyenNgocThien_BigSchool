@@ -40,7 +40,7 @@ namespace NguyenNgocThien_BigSchool.Controllers
 
             //Lay login user id
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-            objCourse.Name = user.Name;
+            objCourse.LecturerId = user.Id;
 
             //Add vao csdl
             context.Courses.Add(objCourse);
