@@ -20,7 +20,7 @@ namespace NguyenNgocThien_BigSchool.Controllers
             {
                 return BadRequest("The attendance already exist!");
             }
-            var attendance = new Attendance() { CourseId = attendanceDto.Id, Attendee = User.Identity.GetUserId() };
+            var attendance = new Attendance() { CourseId = attendanceDto.Id, Attendee = userID };
             context.Attendances.Add(attendance);
             context.SaveChanges();
             return Ok();

@@ -17,6 +17,6 @@ namespace NguyenNgocThien_BigSchool.Models
         [Key]
         [Column(Order = 1)]
         public string Attendee { get; set; }
-        public Course Course { get; internal set; }
+        public virtual Course Course { get; set; }
     }
 }

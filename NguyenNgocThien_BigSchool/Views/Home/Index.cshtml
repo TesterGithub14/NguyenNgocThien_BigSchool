@@ -27,7 +27,7 @@
                     <br />
                     <span class="category">
                         @course.Category.Name
-                        <button data-course-id="@course.Id" class="btn btn-info btn-sm js-tongle-attendance">Going?</button>
+                        <button data-course-id="@course.Id" class="btn btn-info btn-sm js-tongle-attendance">Going</button>
                     </span>
                 </div>
             </li>
@@ -42,7 +42,6 @@
                         Id: button.attr("data-course-id")
                     })
                         .done(function (result) {
-                            alert("cancel register course successfully!")
                             button
                                 .removeClass("btn-default")
                                 .addClass("btn-info")
@@ -52,16 +51,7 @@
                         });
                 });
 
-                $(".js-tongle-attendance").click(function (e) {
-                    var button = $(e.target);
-                    $.post("/api/followings", { FolloweeId: button.attr("data-user-id") })
-                        .done(function () {
-                            button.text("Following");
-                            alert("Follow sucessfullly!")
-                        }).fail(function () {
-                            alert("Something fail");
-                        });
-                });
+               
             });
         </script>}
 </div >
